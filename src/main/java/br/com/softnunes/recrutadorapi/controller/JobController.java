@@ -18,7 +18,7 @@ public class JobController {
     @Autowired
     private JobService jobService;
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping()
     public ResponseEntity<Job> createJob(@RequestBody Job job) {
         Job createdJob = jobService.createJob(job);

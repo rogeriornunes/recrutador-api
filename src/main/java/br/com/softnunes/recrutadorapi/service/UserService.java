@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+
 @Service
 public class UserService {
 
@@ -16,14 +18,14 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private RoleService roleService;
-    
-    @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private RoleService roleService;
 
     public User saveUser(UserDTO userDTO) {
         if (userRepository.findByUsername(userDTO.getUsername()) != null) {
-            throw new RuntimeException("Usuário já existe.");
+            throw new RuntimeException("Usuário já cadastrado.");
         }
 
         User user = new User();
@@ -32,9 +34,5 @@ public class UserService {
         Role role = roleService.saveRole(userDTO);
         user.getRoles().add(role);
         return userRepository.save(user);
-    }
-
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
     }
 }
