@@ -18,8 +18,8 @@ public class JobController {
     @Autowired
     private JobService jobService;
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping()
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PostMapping("/create")
     public ResponseEntity<Job> createJob(@RequestBody Job job) {
         Job createdJob = jobService.createJob(job);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdJob);
