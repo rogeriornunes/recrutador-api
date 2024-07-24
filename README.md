@@ -1,5 +1,5 @@
 ## 📝 Descrição
-O Api para cadastramento de clientes.
+O Api para cadastro de vagas e candidatura.
 
 
 ## 📝 Tecnologias
