@@ -20,13 +20,17 @@ O Api para cadastro de vagas e candidatura.
 
 - É **necessário** ter instalado o [Git](https://git-scm.com/) para clonar o projeto.
 
+- É **necessário ter instalado o [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) 
 
 ### 🎲 Rodando o Backend (api)
 
 ```bash
 # Clone este repositório
 $  git  clone https://github.com/rogeriornunes/recrutador-api.git
-# Banco Padrão Postgres database: "recrutadordb" já tem os drive tudo configurado no application basta criar o DataBase no Postgres e subir servidor. 
+
+# Criar no pgAdmin 4 o banco de dados com nome: "recrutadordb" já tem os drive tudo configurado no application basta criar o DataBase no Postgres e subir servidor.
+CREATE DATABASE recrutadordb;
+Ao subir o recrutador-ui e recrutador-api será possivel cadastrar dois tipos de usuario ADMIN e USER
 $  vim  src/main/resources/application.properties
 # O jpa irá criar todas tabelas e relacionamento
 
